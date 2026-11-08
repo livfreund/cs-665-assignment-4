@@ -1,4 +1,36 @@
 
+| CS-665       | Software Design & Patterns |
+|--------------|----------------------------|
+| Name         | Olivia Freund              |
+| Date         | 11/07/2026                 |
+| Course       | Fall                       |
+| Assignment # | 4                          |
+
+# Assignment Overview
+This project demonstrates the use of the Adapter Design Pattern to integrate a modern customer system with a legacy customer system that uses a different interface. The modern system accesses customer data through a customer API, while the legacy system retrieves customer information from a USB-based storage system. Because the interfaces are incompatible, an adapter is used to translate requests between the two systems. The solution includes customer data classes, modern and legacy system implementations, an adapter class, and JUnit tests. The adapter allows the client to access customer data without needing to know whether the data comes from the modern or legacy system.
+
+# GitHub Repository Link:
+https://github.com/livfreund/cs-665-assignment-4
+
+# Implementation Description 
+For each assignment, please answer the following:
+
+### - Explain the level of flexibility in your implementation, including how new object types can
+be easily added or removed in the future.
+This implementation is flexible because clients communicate through the CustomerDataApi interface rather than directly with specific classes. New customer systems can be added by implementing the same interface, and existing systems can be removed without affecting client code. This makes the application easier to extend and maintain over time.
+
+### - Discuss the simplicity and understandability of your implementation, ensuring that it is easy for others to read and maintain.
+The design is simple because each class has a single responsibility. The customer class stores data, the system classes retrieve data, and the adapter handles interface conversion. Clear class names and a straightforward structure make the code easy to read, understand, and maintain.
+
+### - Describe how you have avoided duplicated code and why it is important.
+Duplicated code was avoided by reusing the functionality already provided by the legacy system. The adapter forwards requests to the legacy system instead of creating separate retrieval logic. Reducing duplication improves maintainability, minimizes errors, and makes future updates easier.
+
+### - If applicable, mention any design patterns you have used and explain why they were chosen.
+This implementation uses the Object Adapter Design Pattern. The Adapter pattern was chosen because the assignment requires two systems with incompatible interfaces to work together. The adapter translates requests from the modern interface into requests that the legacy system can understand, allowing both systems to be used without modifying their existing code.
+
+# UML Diagram 
+The UML Diagram for this application is provided the zip file as an image. I used LucidChart to create the UML Diagram for this project. 
+
 # CS-665 Java Project Template
 
 This repository is a Java 25 Maven project template for CS-665 coursework. It provides a working build setup, example Java code, and test infrastructure for student assignments and small Java applications.

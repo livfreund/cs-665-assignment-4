@@ -1,29 +1,34 @@
 /**
- * Name: FIRST_NAME LAST_NAME
+ * Name: Olivia Freund
  * Course: CS-665 Software Designs & Patterns
- * Date: MM/DD/YYYY
+ * Date: 11/07/2026
  * File Name: Main.java
- * Description: Demonstrates basic Log4j logging.
+ * Description: This class demonstrates the Adapter
+ * pattern by allowing a client to access the legacy
+ * customer system through the modern customer API.
  */
 
 package edu.bu.met.cs665;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-/**
- * Demonstrates basic Log4j logging.
- */
 public class Main {
-  private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-  /**
-   * Run a small Log4j demonstration.
-   */
   public static void main(String[] args) {
-    LOGGER.info("Application started.");
-    LOGGER.debug("Debug details are useful while developing.");
-    LOGGER.warn("This is an example warning.");
-  }
 
+    LegacyCustomerSystem legacySystem =
+            new LegacyCustomerSystem();
+
+    CustomerDataApi adapter =
+            new LegacyCustomerAdapter(legacySystem);
+
+    Customer customer = adapter.getCustomer(100);
+
+    System.out.println("Customer ID: "
+            + customer.getCustomerId());
+
+    System.out.println("Customer Name: "
+            + customer.getCustomerName());
+
+    System.out.println("Customer Email: "
+            + customer.getCustomerEmail());
+  }
 }
